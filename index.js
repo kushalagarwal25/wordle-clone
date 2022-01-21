@@ -1,5 +1,5 @@
 let getWord = function ( ) {
-    fetch('http://akushal25.pythonanywhere.com/getWord')
+    fetch('https://akushal25.pythonanywhere.com/getWord')
         .then(response => response.json())
         .then(response => console.log("Today's Word: " + response.word))
         .catch(error => {console.log(error)})
@@ -50,7 +50,7 @@ window.onload = function () {
 
     
     let apiCall = function () {
-        fetch('http://akushal25.pythonanywhere.com/verify?guess='+word)
+        fetch('https://akushal25.pythonanywhere.com/verify?guess='+word)
             .then(response => response.json())
             .then(response => {
                 console.log((response))
