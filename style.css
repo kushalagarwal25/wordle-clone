@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+.game {
+    align-self: center;
+    margin: auto;
+    width: 30vw;
+}
+.row {
+    display: flex;  /* aligns all child elements (flex items) in a row */
+}
+
+.guessTable {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 36vw;
+}
+  
+.col {
+    flex: 1;        /* distributes space on the line equally among items */
+    border: 2px solid #3a3a3c;
+    margin: 3px;
+    height: 6vw;
+    justify-content: space-between;
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+.green {
+    background-color: #538d4e;
+    border-color: #538d4e;
+}
+.yellow {
+    background-color: #b59f3b;
+    border-color: #b59f3b;
+}
+.gray {
+    background-color: #3a3a3c;
+    border-color: #3a3a3c;
+}
