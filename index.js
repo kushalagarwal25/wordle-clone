@@ -129,11 +129,18 @@ window.onload = function () {
                     var i = 0
                     colourise = setInterval(function () {
                         var child = children[i];
-                        if(colours[i]=='G')
+                        if(colours[i]=='G'){
                             child.className += " green";
-                        else if(colours[i]=='Y')
+                            document.getElementById(guess[i].toLowerCase()).className += " green"
+                        }
+                        else if(colours[i]=='Y'){
                             child.className += " yellow";
-                        else child.className += " gray"
+                            document.getElementById(guess[i].toLowerCase()).className += " yellow"
+                        }
+                        else{
+                            child.className += " gray"
+                            document.getElementById(guess[i].toLowerCase()).className += " gray"
+                        } 
                         i += 1
                         if(i==5)
                             clearInterval(colourise)

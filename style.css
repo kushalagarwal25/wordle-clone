@@ -70,11 +70,11 @@ h1 {
     flex-grow: 1;
 }
 
-.green {
+.green, .green.yellow, .green.gray, .green.yellow.gray {
     background-color: #538d4e;
     border-color: #538d4e;
 }
-.yellow {
+.yellow, .yellow.gray {
     background-color: #b59f3b;
     border-color: #b59f3b;
 }
