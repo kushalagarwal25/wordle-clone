@@ -77,7 +77,8 @@ h1 {
 }
 
 @media screen and (max-width: 481px) {
-    body {
-        background-color: blue;
+    .col {
+        width: 70px;
+        height: 70px;
     }
 }
