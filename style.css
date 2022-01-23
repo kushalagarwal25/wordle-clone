@@ -2,7 +2,6 @@ body {
     background-color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 h1 {
     text-align: center;
     color: white;
@@ -10,28 +9,58 @@ h1 {
 .game {
     align-self: center;
     margin: auto;
-    width: 30vw;
+    width: fit-content;
 }
-.row {
-    display: flex;  /* aligns all child elements (flex items) in a row */
-}
-
 .guessTable {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    height: 36vw;
+    justify-content: space-between;
+    height: fit-content;
+    width: fit-content;
+    margin: 2px;
 }
-  
+.row {
+    display: flex;
+} 
 .col {
-    flex: 1;        /* distributes space on the line equally among items */
+    /* flex: 1;        distributes space on the line equally among items */
     border: 2px solid #3a3a3c;
     margin: 3px;
-    height: 6vw;
-    justify-content: space-between;
+    min-width: 58px;
+    height: 58px;
     color: white;
-    font-size: 4vw;
+    font-size: 40px;
     text-align: center;
+}
+.keyboard {
+    align-self: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 190px;
+    justify-content: space-between;
+    margin-top: 10px;
+    bottom: 0px;
+}
+.keyboard-row {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: center;
+}
+.key{
+    background-color: #818384;
+    min-width: 35px;
+    margin: 2px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 4px;
+}
+.grow {
+    flex-grow: 1;
 }
 
 .green {
@@ -46,3 +75,15 @@ h1 {
     background-color: #3a3a3c;
     border-color: #3a3a3c;
 }
+
+/* @media screen and (max-width: 481px) {
+    body {
+        background-color: blue;
+    }
+    .guess-table {
+        width: min-content;
+    }
+    .col {
+        
+    }
+} */
