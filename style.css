@@ -76,14 +76,8 @@ h1 {
     border-color: #3a3a3c;
 }
 
-/* @media screen and (max-width: 481px) {
+@media screen and (max-width: 481px) {
     body {
         background-color: blue;
     }
-    .guess-table {
-        width: min-content;
-    }
-    .col {
-        
-    }
-} */
+}
