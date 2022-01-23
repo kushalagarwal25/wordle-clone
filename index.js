@@ -48,6 +48,64 @@ window.onload = function () {
         }
     });
 
+    let append = function (letter) {
+        if(gameOver==1)
+            return;
+        if(col<5) {
+            // console.log(event.key)
+            word += letter
+            var children = document.getElementById('r' + parseInt(row+1)).children;
+            var child = children[col];
+            child.innerHTML = letter
+            col += 1
+        }
+    }
+    document.getElementById('q').onclick = function() {append('Q')}
+    document.getElementById('w').onclick = function() {append('W')}
+    document.getElementById('e').onclick = function() {append('E')}
+    document.getElementById('r').onclick = function() {append('R')}
+    document.getElementById('t').onclick = function() {append('T')}
+    document.getElementById('y').onclick = function() {append('Y')}
+    document.getElementById('u').onclick = function() {append('U')}
+    document.getElementById('i').onclick = function() {append('I')}
+    document.getElementById('o').onclick = function() {append('O')}
+    document.getElementById('p').onclick = function() {append('P')}
+    document.getElementById('a').onclick = function() {append('A')}
+    document.getElementById('s').onclick = function() {append('S')}
+    document.getElementById('d').onclick = function() {append('D')}
+    document.getElementById('f').onclick = function() {append('F')}
+    document.getElementById('g').onclick = function() {append('G')}
+    document.getElementById('h').onclick = function() {append('H')}
+    document.getElementById('j').onclick = function() {append('J')}
+    document.getElementById('k').onclick = function() {append('K')}
+    document.getElementById('l').onclick = function() {append('L')}
+    document.getElementById('z').onclick = function() {append('Z')}
+    document.getElementById('x').onclick = function() {append('X')}
+    document.getElementById('c').onclick = function() {append('C')}
+    document.getElementById('v').onclick = function() {append('V')}
+    document.getElementById('b').onclick = function() {append('B')}
+    document.getElementById('n').onclick = function() {append('N')}
+    document.getElementById('m').onclick = function() {append('M')}
+    document.getElementById('back').onclick = function() {
+        if(gameOver==1)
+            return;
+        if(col>0) {
+            var children = document.getElementById('r' + parseInt(row+1)).children;
+            col -= 1
+            var child = children[col];
+            child.innerHTML = ''
+            word = word.substring(0, word.length - 1);
+            // console.log(word)
+        }
+    }
+    document.getElementById('enter').onclick = function() {
+        if(gameOver==1)
+            return;
+        console.log(word)
+        if(col==5) {
+            apiCall(word)
+        }
+    }
     
     let apiCall = function () {
         fetch('https://akushal25.pythonanywhere.com/verify?guess='+word)
