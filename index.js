@@ -109,6 +109,15 @@ window.onload = function () {
             apiCall(word)
         }
     }
+
+    function copyToClipboard(text) {
+        const elem = document.createElement('textarea');
+        elem.value = text;
+        document.body.appendChild(elem);
+        elem.select();
+        document.execCommand('copy');
+        document.body.removeChild(elem);
+     }
     
     let apiCall = function () {
         fetch('https://akushal25.pythonanywhere.com/verify?guess='+word)
@@ -161,7 +170,7 @@ window.onload = function () {
                             summary = 'Wordle-Clone ('+today.toLocaleDateString("en-US", options)+') '+ row+'/6' + summary
                             console.log(summary)
                             alert("You Win!!!")
-                            navigator.clipboard.writeText(summary)
+                            copyToClipboard(summary)
                         },1100)
                     }
                     if(response.response_type=='incorrect' && row==6) {
