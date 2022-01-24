@@ -12,6 +12,9 @@ window.onload = function () {
     let col = 0
     let word = ''
     let gameOver = 0
+    let summary= ''
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var today  = new Date();
 
     window.addEventListener("keydown", event => {
         if(gameOver==1)
@@ -127,33 +130,47 @@ window.onload = function () {
                         child.innerHTML = guess[i]
                     }
                     var i = 0
+                    summary += '\n'
                     colourise = setInterval(function () {
                         var child = children[i];
                         if(colours[i]=='G'){
+                            summary += '🟢'
                             child.className += " green";
                             document.getElementById(guess[i].toLowerCase()).className += " green"
                         }
                         else if(colours[i]=='Y'){
+                            summary += '🟡'
                             child.className += " yellow";
                             document.getElementById(guess[i].toLowerCase()).className += " yellow"
                         }
                         else{
+                            summary += '⚫'
                             child.className += " gray"
                             document.getElementById(guess[i].toLowerCase()).className += " gray"
                         } 
                         i += 1
-                        if(i==5)
+                        if(i==5){
                             clearInterval(colourise)
+                        }
                     }, 200);
+
                     if(response.response_type=='correct') {
                         gameOver = 1
-                        console.log('GAME OVER')
-                        setTimeout(function() {alert("You Win!!!")},1100)
+                        // console.log(summary)
+                        setTimeout(function() {
+                            summary = 'Wordle-Clone ('+today.toLocaleDateString("en-US", options)+') '+ row+'/6' + summary
+                            console.log(summary)
+                            alert("You Win!!!")
+                            navigator.clipboard.writeText(summary)
+                        },1100)
                     }
                     if(response.response_type=='incorrect' && row==6) {
                         gameOver = 1
-                        console.log('GAME OVER')
-                        setTimeout(function() {alert("You Lose :(\nBetter luck next time")},500)
+                        setTimeout(function() {
+                            summary = 'Wordle-Clone ('+today.toLocaleDateString("en-US", options)+') X/6' + summary
+                            console.log(summary)
+                            alert("You Lose :(\nBetter luck next time")
+                        },1100)
                     }
                 }
             })
